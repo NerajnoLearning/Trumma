@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import useAudio from "../hooks/useAudio";
+import { useAudio } from "../hooks/useAudio";
 
 interface DrumPadProps {
   triggerKey: string;
@@ -8,13 +8,20 @@ interface DrumPadProps {
 
 const DrumPad: React.FC<DrumPadProps> = ({ triggerKey, audioClip }) => {
   const [isTriggered, setIsTriggered] = useState(false);
-  const { playAudio } = useAudio();
+  const { playAudio } = useAudio(audioClip);
 
   useEffect(() => {
+    const playAudioPromise = async () => {
+      try {
+        await playAudio();
+      } catch (error) {
+        console.error(error);
+      }
+    };
     if (isTriggered) {
-      playAudio(audioClip);
+      void playAudioPromise();
     }
-  }, [isTriggered, audioClip]);
+  }, [isTriggered, playAudio]);
 
   const handleClick = () => {
     setIsTriggered(true);
@@ -31,6 +38,7 @@ const DrumPad: React.FC<DrumPadProps> = ({ triggerKey, audioClip }) => {
       className="drum-pad"
       onClick={handleClick}
       onKeyDown={handleKeyPress}
+      tabIndex={0}
     >
       {triggerKey}
     </div>
