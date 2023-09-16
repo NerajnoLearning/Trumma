@@ -1,12 +1,17 @@
 import React from "react";
-import useAudio from "../hooks/useAudio";
+import { useAudio } from "../hooks/useAudio";
 
-const Display: React.FC = () => {
-  const { currentClip } = useAudio();
+interface DisplayProps {
+  audioClip: string;
+}
+
+
+const Display: React.FC<DisplayProps> = ({audioClip}) => {
+  const { isPlaying } = useAudio(audioClip);
 
   return (
     <div id="display">
-      {currentClip?.audioClip}
+      {isPlaying ? audioClip : ''}
     </div>
   );
 };
