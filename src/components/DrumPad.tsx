@@ -37,6 +37,7 @@ const DrumPad: React.FC<DrumPadProps> = ({ triggerKey, audioClip }) => {
     <div
       className="drum-pad"
       onClick={handleClick}
+      id="drum-pad"
       onKeyDown={handleKeyPress}
       tabIndex={0}
     >
