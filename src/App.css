@@ -41,6 +41,7 @@ body {
   line-height: 100px;
   background-color: gray;
   color: black;
+  border-radius: 7px;
 }
 
 .drum-pad:hover {

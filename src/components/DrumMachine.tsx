@@ -3,7 +3,7 @@ import DrumPad from "./DrumPad";
 
 
 const DRUM_PADS = [
-  { triggerKey: "Q", audioClip: "../assets/audio/Clap.mp3" },
+  { triggerKey: "Q", audioClip: "../assets/audio/Clap.mp3"},
   { triggerKey: "W", audioClip: "../assets/audio/Closed-HH.mp3" },
   { triggerKey: "E", audioClip: "../assets/audio/Heater-1.mp3" },
   { triggerKey: "A", audioClip: "../assets/audio/Heater-2.mp3" },
@@ -20,9 +20,10 @@ const DrumMachine: React.FC = () => {
       <div id="display">
       {DRUM_PADS.map((drumPad) => (
         <DrumPad
-          key={drumPad.triggerKey}
+          key={drumPad.triggerKey.valueOf()}
+          id={drumPad.triggerKey}
           triggerKey={drumPad.triggerKey}
-          audioClip={drumPad.audioClip}
+          audioClip={drumPad.audioClip }
         />
       ))}
       </div>

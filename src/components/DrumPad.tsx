@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { useAudio } from "../hooks/useAudio";
+import DRUM_PADS from "./DrumMachine"
 
 interface DrumPadProps {
   triggerKey: string;
   audioClip: string;
+  id: string;
 }
 
-const DrumPad: React.FC<DrumPadProps> = ({ triggerKey, audioClip }) => {
-  const [isTriggered, setIsTriggered] = useState(false);
+
+const DrumPad: React.FC<DrumPadProps> = ({ id, triggerKey, audioClip }) => {
+  const [isTriggered, setIsTriggered] = useState<boolean>(false);
   const { playAudio } = useAudio(audioClip);
 
   useEffect(() => {
-    const playAudioPromise = async () => {
+    const playAudioPromise = async (): Promise<void> => {
       try {
         await playAudio();
       } catch (error) {
@@ -23,11 +26,11 @@ const DrumPad: React.FC<DrumPadProps> = ({ triggerKey, audioClip }) => {
     }
   }, [isTriggered, playAudio]);
 
-  const handleClick = () => {
+  const handleClick = (): void => {
     setIsTriggered(true);
   };
 
-  const handleKeyPress = (e: React.KeyboardEvent) => {
+  const handleKeyPress = (e: React.KeyboardEvent):  void => {
     if (e.key === triggerKey) {
       setIsTriggered(true);
     }
