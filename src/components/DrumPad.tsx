@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useAudio } from "../hooks/useAudio";
-import DRUM_PADS from "./DrumMachine"
+// import DRUM_PADS from "./DrumMachine";
 
 interface DrumPadProps {
   triggerKey: string;
@@ -9,7 +9,7 @@ interface DrumPadProps {
 }
 
 
-const DrumPad: React.FC<DrumPadProps> = ({ id, triggerKey, audioClip }) => {
+const DrumPad: React.FC<DrumPadProps> = ({  triggerKey, audioClip }) => {
   const [isTriggered, setIsTriggered] = useState<boolean>(false);
   const { playAudio } = useAudio(audioClip);
 
