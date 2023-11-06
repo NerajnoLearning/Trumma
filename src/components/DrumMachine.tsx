@@ -25,6 +25,7 @@ const DrumMachine: React.FC = () => {
           triggerKey={drumPad.triggerKey}
           audioClip={drumPad.audioClip }
         />
+        
       ))}
       </div>
     </div>
