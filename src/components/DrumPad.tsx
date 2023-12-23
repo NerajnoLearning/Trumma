@@ -38,7 +38,7 @@ const DrumPad: React.FC<DrumPadProps> = ({  triggerKey, audioClip }) => {
 
   return (
     <div
-      className="drum-pad"
+      className="drum-pad clip"
       onClick={handleClick}
       id="drum-pad"
       onKeyDown={handleKeyPress}
