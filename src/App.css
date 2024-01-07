@@ -1,53 +1,30 @@
-body {
-  background: linear-gradient(50deg,#660257,#ba02ff, #ff1822);
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.container{
+    text-align: center;
+    margin: 50px;
 }
 
-#drum-machine {
-  width: 500px;
-  height: 500px;
-  border: 1px solid black;
-  border-radius: 10px;
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.whole-drum{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:  20px;
+    grid-template-rows: repeat(3, 1fr);
+    margin: 50px auto;
+    width: min-content;
 }
 
-#display {
-  width: 100%;
-  height: 100px;
-  font-size: 24px;
-  text-align: center;
-  line-height: 100px;
-  color: white;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  grid-gap: 10px;
+.drum-pad{
+    width: 100px;
+    height: 100px;
+    border: 2 px solid black;
+    background-color: #3f3f3f;
+    color: white;
+    font-size: 20px;
+    border-radius: 8px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+    transition: all 0.2s ease-in-out;
 }
 
-.drum-pad {
-  width: 100px;
-  height: 100px;
-  border: 1px solid black;
-  cursor: pointer;
-  font-size: 24px;
-  text-align: center;
-  line-height: 100px;
-  background-color: gray;
-  color: black;
-  border-radius: 7px;
-}
-
-.drum-pad:hover {
-  background-color: lightgray;
-}
-
-.drum-pad:active {
-  background-color: darkgray;
+.drum-pad:hover{
+    background-color: white;
+    color: black;
 }
